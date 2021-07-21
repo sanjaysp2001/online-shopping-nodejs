@@ -1,9 +1,9 @@
-var passport = require('passport');
-var LocalStrategy = require('passport-local').Strategy;
-var User = require('./models/user');
-var jwt = require('jsonwebtoken');
-var JwtStrategy = require('passport-jwt').Strategy;
-var ExtractJwt  = require('passport-jwt').ExtractJwt;
+const passport = require('passport');
+const LocalStrategy = require('passport-local').Strategy;
+const User = require('./models/user');
+const jwt = require('jsonwebtoken');
+const JwtStrategy = require('passport-jwt').Strategy;
+const ExtractJwt  = require('passport-jwt').ExtractJwt;
 
 
 exports.local = passport.use(new LocalStrategy({
@@ -43,7 +43,7 @@ exports.verifyOwner = (req,res,next)=>{
         next();
     }
     else{
-        var err = new Error("You are not authenticated to perform this operation!");
+        const err = new Error("You are not authenticated to perform this operation!");
         res.setHeader('Content-type','application/json');
         res.statusCode = 403;
         return next(err);
