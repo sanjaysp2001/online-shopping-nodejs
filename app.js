@@ -10,6 +10,7 @@ const passport = require('passport');
 const bodyParser = require('body-parser')
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
+const productRouter  = require('./routes/products');
 
 const app = express();
 
@@ -18,6 +19,7 @@ mongoose.connect(process.env.MONGO_URL,{
   useNewUrlParser: true,
   useUnifiedTopology: true,
   useCreateIndex: true,
+  useFindAndModify: false
 }).then(() => {
   console.log("Database Connection Successful")
 }).catch((err) => {
@@ -37,6 +39,7 @@ app.use(passport.initialize());
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+app.use('/products',productRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

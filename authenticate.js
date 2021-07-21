@@ -43,10 +43,9 @@ exports.verifyOwner = (req,res,next)=>{
         next();
     }
     else{
-        const err = new Error("You are not authenticated to perform this operation!");
         res.setHeader('Content-type','application/json');
         res.statusCode = 403;
-        return next(err);
+        res.json({message:"You are not authenticated to perform this operation!"})
     }
 };
 
