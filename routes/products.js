@@ -2,7 +2,7 @@ const router = require('express').Router();
 const auth = require('../authenticate');
 const Product = require('../models/product');
 
-//Get all the products that are in stock
+//Get all the products
 router.get('/all',auth.verifyUser,(req,res,next)=>{
     Product.find({})
     .then((product) => {

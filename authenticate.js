@@ -37,7 +37,10 @@ exports.jwtPassport = passport.use(new JwtStrategy(options,
         });
 }));
 
+//This function verifies the JWT 
 exports.verifyUser = passport.authenticate('jwt',{session: false});
+
+//This function checks if the current user is the owner
 exports.verifyOwner = (req,res,next)=>{
     if(req.user.isOwner){
         next();
