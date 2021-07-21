@@ -16,7 +16,7 @@ This is the backend for a simple ecommerce application. This provides some basic
 
 If not, then after login, you need to copy the token and paste it on every request you give manually.)
 
-# Notes
+# Making a User as Owner
 
 After registering a user if you want to grant owner rights, you must manually update a field in User Schema called "isOwner".
 
@@ -30,36 +30,92 @@ https://www.getpostman.com/collections/3813dff5108b26a75366
 
 These are the endpoints implemented:
 
-User Registration
+User Registration:
 ```
-http://<domain-name>/users/signup
+method: POST
+url: http://<domain-name>/users/signup
+
+body:
+{
+    "firstname":"user_firstname",
+    "lastname":"user_lastname",
+    "email":"useremail@gmail.com",
+    "password":"user password"
+}
 ```
 User Login
 ```
-http://<domain_name>/users/login
+method: POST
+url: http://<domain_name>/users/login
+
+body:
+{
+    "email":"useremail@gmail.com",
+    "password":"password"
+}
+
 ```
 Add Product(Only with Owner Rights)
 ```
-http://<domain-name>/products/add
+method: POST
+url: http://<domain-name>/products/add
+
+body:
+{
+    "product_name":"name",
+    "product_description":"description",
+    "price":"Integer value greater than 0",
+    "quantity":"Integer value greater than 0"
+}
+
 ```
 Update Product(Only with Owner Rights)
 ```
-http://<domain-name>/products/update/:prod_id
+method: POST
+url: http://<domain-name>/products/update/:prod_id
+
+body updated:
+{
+    "product_name":"name",
+    "product_description":"description",
+    "price":1000,
+    "quantity":10
+}
 ```
 List all Products
 ```
-http://<domain-name>/products/all
+method: GET
+url: http://<domain-name>/products/all
 ```
 Place Order
 ```
-http://<domain-name>/order/new
+method: POST
+url: http://<domain-name>/order/new
+
+body:
+{
+    "order_detail":
+    [
+        {
+            "product_id":"id",
+            "quantity": 1
+        },
+        {
+            "product_id":"id",
+            "quantity": 1
+        },
+        ...
+    ]
+}
 ```
 Get all order details(Only with Owner rights)
 ```
-http://<domain-name>/order/all
+method: GET
+url: http://<domain-name>/order/all
 ```
 Get your Order details
 ```
-http://<domain-name>/order/myorders
+method: GET
+url: http://<domain-name>/order/myorders
 ```
 
