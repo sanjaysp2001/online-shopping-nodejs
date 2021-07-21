@@ -2,7 +2,7 @@
 This is the backend for a simple ecommerce application. This provides some basic functionalities like user authentication, adding products,buying products etc.
 
 # Usage
-1.First download or clone this repository
+1.Download or clone this repository
 
 2.Run ```npm install ```
 
