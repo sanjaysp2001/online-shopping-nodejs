@@ -22,3 +22,16 @@ User Login
 ```
 http://<domain_name>/users/login
 ```
+Add Product(Only with Owner Rights)
+```
+http://<domain-name>/products/add
+```
+Update Product(Only with Owner Rights)
+```
+http://<domain-name>/products/update/:prod_id
+```
+List all Products
+```
+http://<domain-name>/products/all
+```
+
