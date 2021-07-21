@@ -6,7 +6,11 @@ This is the backend for a simple ecommerce application. This provides some basic
 
 2.Run ```npm install ```
 
-3.Create an .env file with your mongodb url and your own secretkey.
+3.Create an .env file with your mongodb url and your own secretkey as follows:
+```
+MONGO_URL:<your mongodb url>
+SECRETKEY:<your secret key>
+```
 
 4.Run ``` npm start ```
 
