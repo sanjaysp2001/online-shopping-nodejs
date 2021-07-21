@@ -117,9 +117,14 @@ Get all order details(Only with Owner rights)
 method: GET
 url: http://<domain-name>/order/all
 ```
-Get your Order details
+Get your Order details(all)
 ```
 method: GET
 url: http://<domain-name>/order/myorders
+```
+Get your Order details(specific)
+```
+method: GET
+url: http://<domain-name>/order/myorders/:orderid
 ```
 
