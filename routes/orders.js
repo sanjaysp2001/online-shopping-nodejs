@@ -89,4 +89,14 @@ router.get('/myorders',auth.verifyUser,(req,res)=>{
     });
 })
 
+router.get('/myorders/:orderid',auth.verifyUser,(req,res)=>{
+    Order.findOne({_id:req.params.orderid})
+    .then((result) => {
+        res.setHeader('Content-Type','application/json');
+        res.json(result);        
+    }).catch((err) => {
+        res.json(err);     
+    });
+});
+
 module.exports = router;
