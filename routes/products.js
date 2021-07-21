@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const auth = require('../authenticate');
-const Product = require('../models/products');
+const Product = require('../models/product');
 
 //Get all the products that are in stock
 router.get('/all',auth.verifyUser,(req,res,next)=>{
